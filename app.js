@@ -25,7 +25,8 @@ const toMenu = () => {
 }
 
 const startGame = () => {
-
+  removeClass(ROOT, 'menu')
+  addClass(ROOT, 'game')
 }
 
 const triggerFail = () => {

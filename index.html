@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="./app.css">
 </head>
+
 <body>
   <div id="bingo-blitz" class="bingo-blitz">
     <div id="start-screen" class="bingo-blitz__start-screen">
@@ -18,11 +20,37 @@
         <img src="./images/backgrElement2.png" alt="Pan" class="bingo-blitz__pan">
         <img src="./images/backgrElement1.png" alt="Rolling Pin" class="bingo-blitz__pin">
       </div>
+
+      <div class="bingo-blitz__start-game-wrapper">
+        <button type="button" class="bingo-blitz__start-game" onclick="startGame()">
+          <img src="./images/CallToAction.png" alt="Start Game">
+        </button>
+      </div>
+      <button type="button" class="bingo-blitz__restart-game" onclick="startGame()"><img src="./images/restart.png" alt="Restart"></button>
     </div>
     <div id="game" class="bingo-blitz__game">
-      
+      <img src="./images/BingoBlitzLogoBig.png" alt="Bingo Blitz Logo" class="bingo-blitz__logo bingo-blitz__logo--game">
+      <div class="bingo-blitz__kitchentable">
+        <div class="plate plate--1">
+          <img src="./images/plate.png" alt="Plate" class="bingo-blitz__plate">
+          <img src="./images/maindish.png" alt="Maindish" class="bingo-blitz__maindish">
+        </div>
+        <div class="plate plate--2">
+          <img src="./images/plate.png" alt="Plate" class="bingo-blitz__plate">
+          <img src="./images/maindish.png" alt="Maindish" class="bingo-blitz__maindish">
+        </div>
+        <div class="plate plate--3">
+          <img src="./images/plate.png" alt="Plate" class="bingo-blitz__plate">
+          <img src="./images/maindish.png" alt="Maindish" class="bingo-blitz__maindish">
+          <img src="./images/win1.png" alt="Dish" class="bingo-blitz__dish">
+        </div>
+      </div>
+    </div>
+    <div id="copyright" class="bingo-blitz__copyright">
+      <span>© 2019 Playtika Santa Monica LLC. All Rights Reserved <span><img src="./images/playtika.png" alt="Playtika"></span></span>
     </div>
   </div>
   <script src="./app.js"></script>
 </body>
+
 </html>

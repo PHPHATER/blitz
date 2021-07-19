@@ -1,15 +1,22 @@
-.bingo-blitz {
+body {
+ background: #000;
 }
 
 .bingo-blitz__start-screen {
  position: fixed;
  top: 0;
- left: 0;
+ left: 50%;
  width: 100%;
  height: 100%;
  background: #fff url(./images/backgr.png) no-repeat center center;
  background-size: cover;
- z-index: 1;
+ z-index: 2;
+ max-width: 1024px;
+ transform: translateX(-50%);
+ overflow: hidden;
+ opacity: 1;
+ visibility: visible;
+ transition: 0.2s ease-in;
 }
 
 .bingo-blitz__sparks {
@@ -20,7 +27,7 @@
 }
 
 .bingo-blitz__logo {
- width: 50vw;
+ width: 50%;
  position: absolute;
  right: 0;
  top: 0;
@@ -79,6 +86,157 @@
  max-width: 25%;
 }
 
+.bingo-blitz__copyright {
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ z-index: 3;
+ color: #fff;
+ font-size: calc(0.6rem + 0.1vw) !important;
+ width: 100%;
+ line-height: 1.2;
+ padding: 0 5px;
+ background: linear-gradient(0deg, rgba(57, 55, 73, 1) 0%, rgba(55, 55, 73, 0.4682247899159664) 82%, rgba(0, 0, 0, 0) 100%);
+}
+
+.bingo-blitz__copyright > span {
+ display: flex;
+ gap: 5px;
+ width: 100%;
+ justify-content: center;
+ align-items: center;
+}
+
+.bingo-blitz__copyright > span > span {
+ flex: 0 0 100px;
+ max-width: 100px;
+}
+
+.bingo-blitz__copyright img {
+ max-width: 100%;
+}
+
+.bingo-blitz__start-game-wrapper {
+ position: fixed;
+ z-index: 3;
+ bottom: 70px;
+ width: 100%;
+ text-align: center;
+ animation-duration: 0.4s;
+ animation-fill-mode: both;
+ animation-delay: 1.3s;
+}
+
+.bingo-blitz__start-game {
+ appearance: none;
+ border: none;
+ background: transparent;
+ padding: 0;
+ max-width: 80%;
+ display: inline-block;
+ animation-duration: 0.4s;
+ animation-fill-mode: both;
+ animation-delay: 1.7s;
+ animation-duration: 1.5s;
+ animation-iteration-count: infinite;
+}
+
+.bingo-blitz__start-game img {
+ max-width: 100%;
+ height: auto;
+}
+
+.bingo-blitz__restart-game {
+ appearance: none;
+ border: none;
+ background: transparent;
+ padding: 0;
+ position: absolute;
+ bottom: 30px;
+ right: 25px;
+ z-index: 4;
+ width: 45px;
+ height: 45px;
+ animation-duration: 0.4s;
+ animation-fill-mode: both;
+ animation-delay: 1.7s;
+}
+
+.bingo-blitz__restart-game img {
+ max-width: 100%;
+}
+
+.bingo-blitz__game {
+ position: fixed;
+ top: 0;
+ left: 50%;
+ width: 100%;
+ height: 100%;
+ background: #fff url(./images/backgrkitchen.png) no-repeat center center;
+ background-size: cover;
+ z-index: 1;
+ max-width: 1024px;
+ transform: translateX(-50%);
+ overflow: hidden;
+}
+
+.bingo-blitz__logo--game {
+ right: 50%;
+ transform: translateX(50%);
+ animation: unset !important;
+}
+
+.bingo-blitz__kitchentable {
+ background: transparent url(./images/kitchentable.png) no-repeat bottom center;
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 60%;
+ background-size: cover;
+}
+
+.plate {
+ width: 40%;
+ position: absolute;
+ top: 0;
+ left: 5%;
+}
+
+.bingo-blitz__plate {
+ width: 100%;
+ height: auto;
+ z-index: 1;
+}
+
+.plate--2 {
+ left: auto;
+ right: 5%;
+}
+
+.plate--3 {
+ top: 20%;
+ left: 30%;
+}
+
+.bingo-blitz__dish {
+ position: absolute;
+ z-index: 2;
+ left: 50%;
+ transform: translateX(-50%);
+ bottom: 20px;
+ width: 55%;
+}
+
+.bingo-blitz__maindish {
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+ bottom: 15px;
+ width: 85%;
+ z-index: 3;
+}
+
 @media (min-width: 474.98px) {
  .bingo-blitz__pin {
   left: 85%;
@@ -90,7 +248,8 @@
  animation-name: bounceInDown;
 }
 
-.bingo-blitz.menu .bingo-blitz__foreground {
+.bingo-blitz.menu .bingo-blitz__foreground,
+.bingo-blitz.menu .bingo-blitz__start-game-wrapper {
  animation-name: bounceInUp;
 }
 
@@ -102,6 +261,18 @@
  animation-name: candice;
 }
 
+.bingo-blitz.menu .bingo-blitz__start-game {
+ animation-name: pulse;
+}
+.bingo-blitz.menu .bingo-blitz__restart-game {
+ animation-name: slideInRight;
+}
+
+/* active game screen */
+.bingo-blitz.game .bingo-blitz__start-screen {
+ opacity: 0;
+ visibility: hidden;
+}
 /* Animation */
 @keyframes bounceInDown {
  from,
@@ -198,5 +369,29 @@
  to {
   transform: translate(0, 0);
   opacity: 1;
+ }
+}
+
+@keyframes pulse {
+ from {
+  transform: scale(1);
+ }
+ 50% {
+  transform: scale(1.05);
+ }
+ to {
+  transform: scale(1);
+ }
+}
+
+@keyframes slideInRight {
+ 0% {
+  -webkit-transform: translate3d(100vw, 0, 0);
+  transform: translate3d(100vw, 0, 0);
+  visibility: visible;
+ }
+ to {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
  }
 }
