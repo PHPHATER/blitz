@@ -289,7 +289,7 @@ body {
  height: 100%;
  z-index: 4;
  animation-fill-mode: both;
- animation-duration: 0.6s;
+ animation-duration: 0.3s;
  animation-delay: 0.5s;
  visibility: hidden;
 }
@@ -501,21 +501,42 @@ body {
   transform: translate3d(0, 10%, 0) scale(1.9);
   visibility: hidden;
  }
+ 
  5% {
    visibility: visible;
  }
+ 
  60% {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(0.95);
   
  }
+ 
+ 65% {
+  transform: scale(1);
+ }
+ 
+ 70% {
+  transform: scale(0.98);
+ }
+ 
  75% {
-  transform: translate3d(0, 0, 0) scale(0.93);
+  transform: scale(1.02);
  }
+ 
+ 80% {
+  transform: scale(0.98) ;
+ }
+ 
+ 85% {
+   transform: scale(1.02) ;
+ }
+ 
  90% {
-  transform: translate3d(0, 0, 0) scale(0.95);
+  transform: scale(0.98);
  }
+ 
  to {
-  transform: translate3d(0, 0, 0);
+  transform: scale(1);
  }
 }

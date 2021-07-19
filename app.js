@@ -39,7 +39,7 @@ const toMenu = (cls) => {
   if (cls) {
     setTimeout(() => {
       removeClass(ROOT, cls)
-    }, 500);
+    }, 600);
   }
   addClass(ROOT, 'menu')
   closePlates()
